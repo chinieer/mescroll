@@ -36,7 +36,9 @@ export default {
       if (this.mescroll) {
         // 滚动到之前列表的位置
         if (this.lastScrollTop) {
-          this.mescroll.setScrollTop(this.lastScrollTop)
+          setTimeout(() => {
+            this.mescroll.setScrollTop(this.lastScrollTop)
+          },0)
           setTimeout(() => { // 需延时,因为setScrollTop内部会触发onScroll,可能会渐显回到顶部按钮
             this.mescroll.setTopBtnFadeDuration(0) // 设置回到顶部按钮显示时无渐显动画
           }, 16)
